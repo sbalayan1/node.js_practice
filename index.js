@@ -45,6 +45,15 @@ const express = require('express')
 // an express app allows us to create dif urls and endpoints that a user can navigate to in the browser. We define code for the server to handle those requests
 const app = express()
 
+// gets around CORS by telling the server to include the cors headers on every response. Look for the access control allow origin header in the network tab. If it doesn't exist, you need to enable cors. 
+const cors = require('cors')
+
+app.use(cors({ origin: '*'}))
+
+// what is preflight? 
+// is a sanity check that ensures the request is safe to fly on the server. The browser automatically knows when to preflight and uses the options HTTP verb. The server will respond with 'yes I will allow this origin to make this request with the following methods'. At which point the main request can happen. 
+
+
 // typical get request that requests data from the server 
 // (request, response) is a callback function. every get request is an event that is handled by the callback function
 // the below is a way for us to send html from the server to the client
