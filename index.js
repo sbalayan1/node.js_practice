@@ -47,7 +47,6 @@ const app = express()
 
 // gets around CORS by telling the server to include the cors headers on every response. Look for the access control allow origin header in the network tab. If it doesn't exist, you need to enable cors. 
 const cors = require('cors')
-
 app.use(cors({ origin: '*'}))
 
 // what is preflight? 
@@ -64,5 +63,4 @@ app.get('/', async (request, response) => {
 // tells the express app to start listening for any incoming requests. This is done by defining a PORT which usually comes from a node environment variable
 
 app.listen(process.env.PORT || 3000, () => console.log('App available on http://localhost:3000'))
-
-
+// to start your app, run node index.js
